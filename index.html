@@ -1,49 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title></title>
+        <title>Meal Planner</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="styles.css" rel="stylesheet">
     </head>
     <body>
+        
     <div class="header">
         <nav class="navigation">
-        <img height="30px" src="https://i.pinimg.com/564x/dd/9d/c9/dd9dc9d83423bc037b511d73b29e6b80.jpg" alt="logo" />
-        </nav>
-        <h2>Meal Planner</h2>
+        <a><img height="50" width="60" src="https://png.pngtree.com/png-clipart/20200720/original/pngtree-vintage-cooking-logo-png-image_4358040.jpg" alt="logo" />
+            <h2>Meal Planner</h2></a>
+    </nav>
     </div>
-    <section >
+    <section>
     <form class="generator-part">
         <div class="inputs">
-            <input id="height" type="number" placeholder="Enter Height" />
+            <input id="height" type="number" placeholder="Enter Height (in cm)" />
             <input id="weight" type="number" placeholder="Enter Weight"/>
             <input id="age" type="number" placeholder="Enter Age"/>
         </div>
         <div class="input-selector">
         <select placeholder="Gender" name="Gender" id="gender" >
-            <option value="none" selected>Gender</option>
+            <option value="none" selected disabled>Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>
           </select >
         
           <select  placeholder="Activity" name="Activity" id="activity">
-            <option value="none" selected>Activity</option>
+            <option value="none" selected disabled>Activity</option>
             <option value="light">Light</option>
             <option value="moderate">Moderate</option>
             <option value="active">Active</option>
           </select >
         </div>
-        <div class="btnG"><button  id="submit" class="btn">Generate Meals</button></div>
+        <div class="btnG"><button type="submit" id="submit" class="btn" onclick="myMeal()">Generate Meals</button></div>
     </form>
-    </section>
+    
        
-    <section class="meal-section">
+    <!-- <section class="meal-section">
         <div id="breakfast">
             <h3>BREAKFAST</h3>
             <div class="breakfast-img">
-            <img height="100px" width="100px" src=" https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?cs=srgb&dl=pexels-ash-376464.jpg&fm=jpg" alt=""/> 
+            <img height="100px" width="100px" src=" " alt=""/> 
             </div>
             <div class="breakfast-name">
             <h4>Meal 1</h4>
@@ -53,7 +54,7 @@
         <div id="lunch">
             <h3>LUNCH</h3>
             <div class="lunch-img">
-            <img height="100px" width="100px" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80" alt=""/>
+            <img height="100px" width="100px" src="" alt=""/>
             </div>
             <div class="lunch-name">
             <h4>Meal 2</h4>
@@ -63,26 +64,30 @@
         <div id="dinner">
              <h3>DINNER</h3>
              <div class="dinner-img">
-             <img height="100px" width="100px" src="https://b.zmtcdn.com/data/pictures/3/18917463/cfc238d459e418b900efc944f04018d0.jpg?fit=around|771.75:416.25&crop=771.75:416.25;*,*" alt=""/>
+             <img height="100px" width="100px" src="" alt=""/>
              </div>
              <div class="dinner-name">
              <h4>Meal 3</h4>
             <button class="btn">GET RECIPE</button>
              </div> 
         </div>
-    </section>
+    </section> -->
     <section class="recipe">
-        <table class="">
-            <tr>
-              <th width="50">Ingredients</th>
-              <th width="100">steps</th>
-              <th data-tabbedTable="Personal info">Equipment</th>
-            </tr>
-            <tr><td></td><td></td><td></td>
-            </tr>
-        </table>
+        <div class="rc1">
+            <div id="loader" style="display: none"></div>
+            <div class="text-center" id="details"></div>
+            <div class="row1" id="cards-container"></div>
+          </div>
+          <div class="rc2">
+            <h1 id="recipe-section" class="text-center"></h1>
+            <div class="row2">
+              <div class="recipes" id="ingredients"></div>
+              <div class="recipes" id="steps"></div>
+              <div class="recipes" id="equipment"></div>
+            </div>
+          </div>
 
     </section>
-    
+</section>
     </body>
 </html>
