@@ -1,10 +1,9 @@
-const submit = document.getElementById("submit");
-const image = document.getElementById("image");
-const weight = document.getElementById("weight");
-const height = document.getElementById("height");
-const age = document.getElementById("age");
-const gender=document.getElementById("gender");
-const activityInput=document.getElementById("activity");
+const height = document.querySelector("#height");
+const weight = document.querySelector("#weight");
+const age = document.querySelector("#age");
+const gender = document.querySelector("#gender");
+const activity = document.querySelector("#activity");
+const submit = document.querySelector("#submit");
 const cardContainer = document.getElementById("cards-container");
 const mealsDetails = document.getElementById("details");
 const ingredientSection = document.getElementById("ingredients");
@@ -12,13 +11,12 @@ const stepsSection = document.getElementById("steps");
 const equipmentSection = document.getElementById("equipment");
 const recipeSection = document.getElementById("recipe-section");
 
-
-const calculateCalories= () => {
+const getCalorie = () => {
   let heightval = height.value;
   let weightval = weight.value;
   let ageval = age.value;
   let genderval = gender.value;
-  let actval = activityInput.value;
+  let actval = activity.value;
   let bmr;
 
   if (
@@ -30,7 +28,7 @@ const calculateCalories= () => {
     ageval <= 0
   ) {
     alert(
-      "All input field should not be empty and should not have negetive value"
+      "Required Feilds"
     );
     return;
   }
@@ -49,18 +47,14 @@ const calculateCalories= () => {
   } else if (actval === "active") {
     bmr *= 1.725;
   }
-console.log(bmr);
-  getMeals(bmr);
-  
 
+  getMeals(bmr);
 };
 
-const getMeals= async (bmr) => {
-  document.getAnimations("loader").style.display = "block";
-  const url =`https://api.spoonacular.com//mealplanner/generate?timeFrame=day&targetCalories=2000&apiKey=0523e0ddefad46899420cdb43b5d603e&includeNutrition=true`
+const getMeals = async (bmr) => {
 
   let datas;
-  await fetch(url)
+  await fetch( `https://api.spoonacular.com//mealplanner/generate?timeFrame=day&targetCalories=2000&apiKey=0523e0ddefad46899420cdb43b5d603e&includeNutrition=true`)
     .then((res) => {
       return res.json();
     })
@@ -74,17 +68,16 @@ const getMeals= async (bmr) => {
 const generateMealsCard = (datas) => {
   let cards = ``;
   mealsDetails.innerHTML = `
-  <h1>Nutrients</h1>
-  <div class="caloriesInfo">
-      <p class="para">Calories : ${datas?.nutrients?.calories}</p>
-      <p class="para">Carbohydrates : ${datas.nutrients?.carbohydrates}</p>
-      <p class="para">Fat : ${datas.nutrients?.fat}</p>
-      <p class="para">Protein : ${datas.nutrients?.protein}</p>
+  <h3>Nutrients</h3>
+  <div class="calories-Information">
+      <span class="Info">Calories : ${datas?.nutrients?.calories}</span>
+      <span class="Info">Carbohydrates : ${datas.nutrients?.carbohydrates}</span>
+      <span class="Info">Fat : ${datas.nutrients?.fat}</span>
+      <span class="Info">Protein : ${datas.nutrients?.protein}</span>
   </div>
   `;
   datas.meals.map(async (data) => {
     const url = `https://api.spoonacular.com/recipes/${data.id}/information?apiKey=0523e0ddefad46899420cdb43b5d603e&includeNutrition=false`;
-
     let imgURL;
     await fetch(url)
       .then((res) => {
@@ -93,42 +86,43 @@ const generateMealsCard = (datas) => {
       .then((data) => {
         imgURL = data.image;
       });
-    
     cards += `
-    <div>
-        <div class="card baseBlock" style="width: 18rem;">
-            <img src=${imgURL} class="card-img-top"
-                alt="meal 1">
-            <div class="card-body">
-                <h5 class="card-title">${data.title}</h5>
-                <p>Preparation Time - ${data.readyInMinutes}</p>
-                <button class="card-btn" onClick="btnRecipe(${data.id})" >Get Recipe</button>
+        <div class="meals-card">
+            <div class="card baseBlock" style="width: 18rem;">
+                <img src=${imgURL} class="card-img-top"
+                    alt="meal 1">
+                <div class="card-body">
+                    <h5 class="card-title">${data.title}</h5>
+                    <p>Preparation Time - ${data.readyInMinutes}</p>
+                    <button class="card-btn" onClick="btnRecipe(${data.id})" >Get Recipe</button>
+                </div>
             </div>
         </div>
-    </div>
-    `;
-cardContainer.innerHTML = cards;
-});
+        `;
+    cardContainer.innerHTML = cards;
+  });
 };
+
 const btnRecipe = async (data) => {
   recipeSection.innerHTML = "";
   ingredientSection.innerHTML = "";
   stepsSection.innerHTML = "";
   equipmentSection.innerHTML = "";
-  const url =`https://api.spoonacular.com/recipes/644882/information?apiKey=0523e0ddefad46899420cdb43b5d603e&includeNutrition=false`
+  
+  let information;
 
-  await fetch(url)
-  .then((res) => {
-    return res.json();
-  })
-  .then((data) => {
-    information = data;
-  });
+  await fetch(`https://api.spoonacular.com/recipes/644882/information?apiKey=0523e0ddefad46899420cdb43b5d603e&includeNutrition=false`)
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      information = data;
+    });
 
-recipeSection.textContent = `${information.title} Recipe`;
+  recipeSection.textContent = `${information.title} Recipe`;
 
-//ingredient information
-let htmlData = ``;
+  //   Ingridents
+  let htmlData = ``;
   let inCardDiv = document.createElement("div");
   inCardDiv.classList.add("carddesign", "card", "h-100");
   let inCardBody = document.createElement("div");
@@ -174,10 +168,10 @@ let htmlData = ``;
   stepsSection.appendChild(stCardDiv);
 
   // equipmentSection
-  const urlEquip =`https://api.spoonacular.com/recipes/1003464/equipmentWidget.json?apiKey=0523e0ddefad46899420cdb43b5d603e`;
+  
   let equip;
 
-  await fetch(urlEquip)
+  await fetch(`https://api.spoonacular.com/recipes/1003464/equipmentWidget.json?apiKey=0523e0ddefad46899420cdb43b5d603e`)
     .then((res) => {
       return res.json();
     })
@@ -208,4 +202,4 @@ let htmlData = ``;
   equipmentSection.appendChild(eqCardDiv);
 };
 
-submit.addEventListener("click",calculateCalories);
+submit.addEventListener("click", getCalorie);

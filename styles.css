@@ -10,100 +10,62 @@ body{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
    
 }
-
-.header{
+.navbar{
+    
     background-color: rgb(250, 69, 3);
     height: 50;
     width: 50;
-    display: flex;
-    flex-direction: row;
-    color: white;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    box-shadow: 0 4px 21px -12px rgba(0,0,0,0.79);
-}
-
-.inputs{
-    padding-top:20px ;
-    display: flex;
-    justify-content: space-around;
-    
-}
-.input-selector{
-    padding-top:20px ;
-    display: flex;
-    justify-content: space-around;
-    padding-bottom: 20px;
-    
-}
-#gender{
-    padding: 1px;
-    width: 150px;
-    margin-left: 20px;
-    
-}
-#activity{
-    padding: 1px;
-    width: 150px;
-    margin-right: 20px;
-    
-}
-.meal-section{
-    display: flex;
-    justify-content: space-around;
-    padding-left: 5px;
-}
-.btnG{
-    
-    display: flex;
-    justify-content: center;
-    padding-bottom: 20px;
    
 }
-.btn{
-    font-family: inherit;
-    cursor: pointer;
-    outline:0;
-    font-size: 1.05rem;
-    border-radius: 5px;
-    background-color: rgb(250, 69, 3);
-    color: white;
-    border-color:rgb(250, 69, 3) ;
-}
-.recipe{
-    padding-top: 20px;
+.navbar-brand{
     display: flex;
-    justify-content: space-around;
-    background-color:rgb(221, 218, 218) ;
-    border: 10px;
-    padding: 10px;
-    margin: 40px;
-    border-radius: 7px ;
-}
-@media screen and (min-width:760px) {
-    .breakfast{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 2rem;
-}
-}
-@media screen and (min-width:760px) {
-    .lunch{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 2rem;
-}
-}
-@media screen and (min-width:760px) {
-    .dinner{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 2rem;
-}
-}
-.breakfast {
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
 
 }
-.dinner:h3{
+.image{
+    height: 60px;
+}
+.Heading{
+    color: white;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    box-shadow: 0 4px 21px -12px rgba(0,0,0,0.79);
+}
+.basic{
+    display: flex;
+    justify-content: space-around;
+}
+.options{
+    display: flex;
+    justify-content: space-evenly;
+}
+.btndiv{
     display: flex;
     justify-content: center;
+    
+}
+.btn{
+    background-color: rgb(250, 69, 3);
+    color: white;
+    border-color: rgb(250, 69, 3);
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 40px;
+    
+    
+}
+.calories-Information{
+    display: flex;
+    flex-direction: row;
+}
+.Info{
+    display: flex;
+    justify-content: space-between;
+
+}
+.meals-card{
+    display: flex;
+    flex-direction: row;
+    
 }
