@@ -51,7 +51,8 @@ body{
     border-color: rgb(250, 69, 3);
     border-radius: 5px;
     box-sizing: border-box;
-    padding: 40px;
+    padding: 5px;
+    margin-top: 20px;
     
     
 }
@@ -69,3 +70,72 @@ body{
     flex-direction: row;
     
 }
+.form-select{
+    padding: 3px;
+    width: 150px;
+    margin-top: 20px;
+}
+.form-control{
+    padding: 3px;
+    margin-top: 20px;
+}
+.card-img-top{
+   height: 200px;
+   width: 200px;
+
+}
+/* .meals{
+    display: flex;
+    flex-direction: row;
+    
+} */
+.text-center{
+    align-items: center;
+}
+
+#cards-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+.card-baseBlock{
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    margin: 0px 0px 35px 0px;
+  padding: 0 0 15px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+}
+.card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+/* .meals-card{
+   padding: 0 0 15px 0;
+   box-sizing: border-box;
+   display: flex;
+   flex-direction: row;
+   height: 200px;
+   width: 200px; 
+} */
+.row2 {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+.recipes {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  .overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  

@@ -88,7 +88,7 @@ const generateMealsCard = (datas) => {
       });
     cards += `
         <div class="meals-card">
-            <div class="card baseBlock" style="width: 18rem;">
+            <div class="card-baseBlock" style="width: 18rem;">
                 <img src=${imgURL} class="card-img-top"
                     alt="meal 1">
                 <div class="card-body">
