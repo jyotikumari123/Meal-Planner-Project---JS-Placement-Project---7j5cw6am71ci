@@ -10,14 +10,20 @@ body{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
    
 }
+.container{
+    background:url(https://i.pinimg.com/736x/cf/34/1c/cf341c67f24405a34297cb4a92a37e73.jpg) no-repeat;
+   background-size: cover;
+    background-position: center;
+}
 .navbar{
     
-    background-color: rgb(250, 69, 3);
+    
     height: 50;
     width: 50;
    
 }
 .navbar-brand{
+    background-color: rgb(250, 161, 45);
     display: flex;
     flex-direction: row;
     align-items: center;
