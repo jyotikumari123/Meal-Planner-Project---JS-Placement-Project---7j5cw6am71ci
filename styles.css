@@ -11,12 +11,18 @@ body{
    
 }
 .container{
-    background:url(https://i.pinimg.com/736x/cf/34/1c/cf341c67f24405a34297cb4a92a37e73.jpg) no-repeat;
+    background:url(https://i.pinimg.com/736x/cf/34/1c/cf341c67f24405a34297cb4a92a37e73.jpg);
+    /* background: conic-gradient(from .5turn at 50% 110%, white, orange); */
    background-size: cover;
     background-position: center;
+    /* height: 100vh; */
+}
+
+.formclass{
+margin: auto;
+padding-top: 15em;
 }
 .navbar{
-    
     
     height: 50;
     width: 50;
@@ -60,22 +66,32 @@ body{
     padding: 5px;
     margin-top: 20px;
     
-    
+}
+#nutrient{
+    margin-top: 1rem;
+    color: orangered;
+    font-weight: bold;
+    /* margin-left: 2rem; */
+    text-align: center;
+
 }
 .calories-Information{
+    /* border: 1px solid black; */
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    font: bold;
+    font-size: 100;
+    padding-bottom: 2%;
+
+    
 }
 .Info{
     display: flex;
     justify-content: space-between;
 
 }
-.meals-card{
-    display: flex;
-    flex-direction: row;
-    
-}
+
 .form-select{
     padding: 3px;
     width: 150px;
@@ -103,7 +119,7 @@ body{
     display: flex;
     justify-content: space-evenly;
 }
-.card-baseBlock{
+/* .card-baseBlock{
     transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
     margin: 0px 0px 35px 0px;
   padding: 0 0 15px 0px;
@@ -111,21 +127,53 @@ body{
   flex-direction: row;
   justify-content: space-between;
   
-}
-.card-body {
+} */
+/* .card-body {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  }
-/* .meals-card{
-   padding: 0 0 15px 0;
-   box-sizing: border-box;
-   display: flex;
-   flex-direction: row;
-   height: 200px;
-   width: 200px; 
-} */
+  } */
+.meals-card{
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    background-attachment: fixed;
+    background-repeat: repeat;
+    background-position: center center;
+   
+   
+}
+.card-baseBlock{
+    position: relative;
+    width: 380px;
+    height: auto;
+    margin: 20px 0;
+    cursor: pointer;
+    background-color: white;
+    box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.5) ;
+}
+.card-baseBlock:hover{
+    transform: scale(1.1);
+}
+.card-baseBlock img{
+    width: 100%;
+}
+.card-btn{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    color: white;
+    background-color: rgb(250, 69, 3);
+    border: none;
+    border-radius: 3px;
+    box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.5) ;
+    cursor: pointer;
+    padding:2px 2px;
+}
 .row2 {
     display: flex;
     justify-content: space-between;

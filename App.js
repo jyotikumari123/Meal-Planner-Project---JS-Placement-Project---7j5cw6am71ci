@@ -68,7 +68,7 @@ const getMeals = async (bmr) => {
 const generateMealsCard = (datas) => {
   let cards = ``;
   mealsDetails.innerHTML = `
-  <h3>Nutrients</h3>
+  <h3 id="nutrient">Nutrients</h3>
   <div class="calories-Information">
       <span class="Info">Calories : ${datas?.nutrients?.calories}</span>
       <span class="Info">Carbohydrates : ${datas.nutrients?.carbohydrates}</span>
@@ -94,7 +94,7 @@ const generateMealsCard = (datas) => {
                 <div class="card-body">
                     <h5 class="card-title">${data.title}</h5>
                     <p>Preparation Time - ${data.readyInMinutes}</p>
-                    <button class="card-btn" onClick="btnRecipe(${data.id})" >Get Recipe</button>
+                    <button class="card-btn" onClick="btnRecipe(${data.id})" >GET RECIPE</button>
                 </div>
             </div>
         </div>
